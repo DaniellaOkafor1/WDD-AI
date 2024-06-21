@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Summer CAM WDD Using AI</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .banner {
+            background-color: silver;
+            text-align: center;
+            padding: 20px;
+        }
+        main div {
+            border: 1px solid #000;
+            padding: 10px;
+            margin: 10px 0;
+        }
+        #div1 img {
+            width: 400px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <h1>Summer CAM WDD Using AI</h1>
+    </div>
+
+    <main class="container">
+        <div id="div1">
+            <h2>Section 1. What is a linear regression?</h2>
+            <ul>
+                <li>It tries to find a linear function y=wx+b</li>
+                <li>The linear function tries to fit a collection of number pairs, such as house sales, (sqft, sale price)</li>
+                <li>There is no linear function that can accurately fit all number pairs. So, we have to find the 'best' one.</li>
+                <li>By being best, we design a so-called cost function, such as mean square error invented by the great Carl Gauss.</li>
+                <li>This is what machine learning is doing.<br><img src="linearRegression1.jpg" alt="Linear Regression Image"></li>
+            </ul>
+        </div>
+        <div id="div2">
+            <h2>Section 2. The JavaScript libraries to use</h2>
+            <p>We will use TensorFlow.js to train the model.</p>
+            <p>Click the 'Run' button below to import two JavaScript libraries.</p>
+            <button id="runButton">Run</button>
+        </div>
+        <div id="div3">
+            
+        </div>
+        <div id="div4">
+            <!-- Console output will be displayed here -->
+        </div>
+        <div id="div5">
+            <h2>Section 3. Using the dataset from Google</h2>
+            <p>We will use a dataset from Google, <a href="https://storage.googleapis.com/tfjs-tutorials/carsData.json">https://storage.googleapis.com/tfjs-tutorials/carsData.json</a></p>
+            <button id="loadDatasetButton">Load the dataset</button>
+        </div>
+        <div id="div6">
+            <!-- Console output will be displayed here -->
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('loadLibrariesButton').addEventListener('click', function() {
+            var script1 = document.createElement('script');
+            script1.src = 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js';
+            document.head.appendChild(script1);
+
+            var script2 = document.createElement('script');
+            script2.src = 'https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js';
+            document.head.appendChild(script2);
+
+            console.log('Libraries loaded successfully');
+            document.getElementById('div4').innerText = 'Libraries loaded successfully';
+        });
+
+        document.getElementById('loadDatasetButton').addEventListener('click', function() {
+            fetch('https://storage.googleapis.com/tfjs-tutorials/carsData.json')
+                .then(response => response.json())
+                .then(data => {
+                    console.log('Dataset loaded successfully', data);
+                    document.getElementById('div6').innerText = 'Dataset loaded successfully';
+                })
+                .catch(error => console.error('Error loading dataset', error));
+        });
+    </script>
+</body>
+</html>

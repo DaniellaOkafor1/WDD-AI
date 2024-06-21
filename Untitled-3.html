@@ -1,0 +1,186 @@
+
+<html>
+<head>
+  <style>
+    main {
+      width: 100%;
+      background-color: lightgreen;
+      padding: 0;
+      margin: 0;
+    }
+    
+    div {
+      padding: 0;
+      margin: 0;
+    }
+    
+    .banner {
+      background-color: lightgray;
+      padding-top: 30px;
+      padding-bottom: 20px;
+      text-align: center;
+    }
+    
+    #div1 {
+      display: flex;
+    }
+    
+    #div1 .div1_left-column {
+      width: 60%;
+    }
+    
+    #div1 .div1_right-column {
+      width: 40%;
+    }
+    
+    #div1 .div1_right-column h2,
+    #div1 .div1_right-column p {
+      margin: 0;
+    }
+    
+    #div1 .div1_right-column a {
+      display: block;
+      margin-top: 10px;
+    }
+    
+    #div2 {
+      display: flex;
+    }
+    
+    #div2 .name-card {
+      flex: 1;
+      text-align: center;
+      margin-right: 10px;
+      cursor: pointer;
+    }
+    
+    #div2 .name-card img {
+      width: 100%;
+    }
+    
+    #div2 .name-card p {
+      margin: 5px 0;
+    }
+    
+    #div3 {
+      display: flex;
+    }
+    
+    #div3 .div1_left-column {
+      width: 25%;
+    }
+    
+    #div3 .div1_left-column h2 {
+      margin: 0;
+    }
+    
+    #div3 .div1_left-column ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    #div3 .div1_left-column ul li {
+      margin-bottom: 5px;
+      cursor: pointer;
+    }
+    
+    #div3 .div1_right-column {
+      width: 75%;
+    }
+  </style>
+  <script>
+    function div1_replaceContent(letter) {
+      var headingText = "5 " + letter + "'s";
+      var paragraphText = "";
+      for (var i = 0; i < 20; i++) {
+        paragraphText += letter;
+      }
+      document.getElementById("div3_right-heading").innerHTML = headingText;
+      document.getElementById("div3_right-paragraph").innerHTML = paragraphText;
+    }
+  </script>
+</head>
+<body>
+  <div class="banner">
+    <h1>Welcome to my webpage</h1>
+  </div>
+  
+  <main>
+    <div id="div1">
+      <div class="div1_left-column">
+        <img src="image1.jpg" alt="Image 1">
+      </div>
+      <div class="div1_right-column">
+        <h2>AI is working</h2>
+        <p>Summer 2024, WDD Using AI at Albany State University</p>
+        <a href="https://www.asurams.edu">Visit Albany State University</a>
+      </div>
+    </div>
+    
+    <div id="div2">
+      <div class="name-card">
+        <img src="card1.jpg" alt="Card 1">
+        <p>Name 1</p>
+        <p>Occupation 1</p>
+        <p>Location 1</p>
+      </div>
+      <div class="name-card">
+        <img src="card2.jpg" alt="Card 2">
+        <p>Name 2</p>
+        <p>Occupation 2</p>
+        <p>Location 2</p>
+      </div>
+      <div class="name-card">
+        <img src="card3.jpg" alt="Card 3">
+        <p>Name 3</p>
+        <p>Occupation 3</p>
+        <p>Location 3</p>
+      </div>
+      <div class="name-card">
+        <img src="card4.jpg" alt="Card 4">
+        <p>Name 4</p>
+        <p>Occupation 4</p>
+        <p>Location 4</p>
+      </div>
+    </div>
+    
+    <div id="div3">
+      <div class="div1_left-column">
+        <h2>Table of contents</h2>
+        <ul>
+          <li onclick="div1_replaceContent('A')">A</li>
+          <li onclick="div1_replaceContent('B')">B</li>
+          <li onclick="div1_replaceContent('C')">C</li>
+          <li onclick="div1_replaceContent('D')">D</li>
+          <li onclick="div1_replaceContent('E')">E</li>
+          <li onclick="div1_replaceContent('F')">F</li>
+          <li onclick="div1_replaceContent('G')">G</li>
+        </ul>
+      </div>
+      <div class="div1_right-column">
+        <h2 id="div3_right-heading">AAAAA</h2>
+        <p id="div3_right-paragraph">AAAAA AAAAA AAAAA AAAAA</p>
+      </div>
+    </div>
+    
+    <div id="div4"></div>
+    <div id="div5"></div>
+    <div id="div6"></div>
+    <div id="div7"></div>
+    <div id="div8"></div>
+    <div id="div9"></div>
+    <div id="div10"></div>
+    <div id="div11"></div>
+    <div id="div12"></div>
+    <div id="div13"></div>
+    <div id="div14"></div>
+    <div id="div15"></div>
+    <div id="div16"></div>
+    <div id="div17"></div>
+    <div id="div18"></div>
+    <div id="div19"></div>
+    <div id="div20"></div>
+  </main>
+</body>
+</html>

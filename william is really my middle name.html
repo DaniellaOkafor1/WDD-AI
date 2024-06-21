@@ -1,0 +1,176 @@
+<html>
+<head>
+    <title>*sighs* welcome to my website.</title>
+    <style>
+        body {
+            font-family: 'Randomn4yy', sans-serif;
+            color: #141010;
+        }
+        body {
+            background-image: url("wow.jpeg");
+            background-size: cover;
+            background-repeat: no-repeat;
+        }
+        .banner {
+            background-color: #ae91f8;
+            padding-top: 30px;
+            padding-bottom: 20px;
+            text-align: center;
+        }
+        .gif {
+position: fixed;
+        }
+        .gif.upper-left {
+            top: 20px;
+            left: 20px;
+        }
+        .name-cards-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .name-card {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            width: 200px;
+            height: 250px;
+            background-color: white;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+        .name-card img {
+            width: 100px;
+            height: 100px;
+            object-fit: cover;
+            border-radius: 50%;
+            margin-bottom: 10px;
+        }
+        .name-card p {
+            margin: 0;
+            text-align: center;
+        }
+        .visitor-counter {
+            margin-top: 20px;
+        }
+
+
+        #div3{
+            display: flex;
+        }
+
+        #div3 .left-column{
+            width: 25%;
+        }
+
+        #div3 .right-column{
+            width: 75%;
+        }
+
+    </style>
+    <script>
+        window.onload = function() {
+            var counter = 0;
+            var counterElement = document.getElementById("visitor-counter");
+
+            function updateCounter() {
+                counter++;
+                counterElement.textContent = "Visitors: " + counter;
+            }
+
+            updateCounter();
+
+        };
+        
+    </script>
+</head>
+<body>
+    <div class="banner">
+        <h1>Welcome to animal crossing and other 2000s crap themed website!</h1>
+        <img src="https://crystal.cafe/img/src/1620616027834.gif" alt="GIF" class="gif">
+    </div>
+
+        <h2>stuf abt me is down below↓↓↓</h2>
+        <p>Not here! Go down some more plz!</p>
+        <ul>
+            <li>I'm Daniella, but most people call me William. (if you saw me in real life, you would know why)</li>
+            <li>I'm 12, in the 7th grade and I go to the second best school in the U.S. My fave colors are black, navy green, and coffee brown.</li>
+            <li>I'm living with three roaches, and I'm planning to make a comic on Webtoon!!</li>
+            <li>Scroll down some more to see my school with a link to it, and two people about my two themes!!!</li>
+            <p><a href="https://www.docoschools.org/o/cross"> No fricking way. It's my school!</a></p>
+        </ul> 
+        <img class="gif" src="https://media.tenor.com/ubfbuz8RckEAAAAi/bugbo-spinning.gif" alt="Example GIF">
+        <div class="visitor-counter" id="visitor-counter">
+    </div>
+     <h3>The main stars of my webbie!</h3>
+    <div class="name-cards-container">
+        <div class="name-card">
+            <img src="https://tse2.mm.bing.net/th?id=OIP.ml56hls0tvgWB17VXJEaeQAAAA&pid=Api&P=0&h=220" alt="Card 1">
+            <p>Name: Bugbo</p>
+            <p>Occupation: to insult gerbo</p>
+            <p>Location: on a floating rock</p>
+        </div>
+        <div class="name-card">
+            <img src="https://tse3.mm.bing.net/th?id=OIP.WzZvQH2RYzZnE69IzRbJCQHaPi&pid=Api&P=0&h=220" alt="Card 2">
+            <p>Name:Bob</p>
+            <p>Occupation: Just dancing~</p>
+            <p>Location: Wherever you live.....</p>
+        </div>
+    </div>
+
+
+    <div id="div3">
+        <div class="left-column">
+            <ul>
+                <li>History of animal crossing</li>
+                <li>Fun facts about ainaml crossing</li>
+            </ul>
+        </div>
+
+        <div class="right-column">
+
+        </div>
+
+    </div>
+
+
+    <div id="div4">
+
+    </div>
+
+
+    <script>
+        let div3Content = [];
+        div3Content[0]="um....hi. this is where i'm going to be posting stuff. yeah."
+        div3Content[1]="Fri,June 12: Just testing this out....🫰🏾"
+        div3Content[2]="CC";
+        div3Content[3]="D";
+        div3Content[4]="E";
+        div3Content[5]="f";
+        div3Content[6]="G";
+        function replaceContent(letter) {
+          var rightColumn = document.querySelector('#div3 .right-column');
+          rightColumn.innerHTML = letter;
+        }
+        
+        document.addEventListener('DOMContentLoaded', function() {
+          var listItems = document.querySelectorAll('#div3 .left-column li');
+          listItems.forEach(function(item, i) {
+            item.addEventListener('click', function() {
+              replaceContent(div3Content[i]);
+            });
+          });
+        });
+      </script>
+<button class="clickable-button"
+onclick="handleClick()">Click Me</button>
+<h4>psst.......it's just there for fun.....😜</h4>
+
+<h3>I decided to be nice....and give you the first episode of Bugbo! YAy!</h3>
+<p><a href="https://youtu.be/NkQAVp9U-9c?si=YyyAAcvWiKF_WTH3"> It's not here....</a></p>
+<img src="https://loves1ck.neocities.org/img/sozai/grrrl/madebya-gray3.png"
+ <p><a href="https://lovesick.cafe/grrrl"> if you're a girl and making a website, get a page from her!</a></p>
+</body>
+</html>

@@ -1,0 +1,133 @@
+
+<html>
+<head>
+  <title>Welcome to ASU</title>
+  <style>
+    .name-card {
+      display: none;
+      width: 200px;
+      height: 300px;
+      float: left;
+      margin-right: 10px;
+      background-color: lightgray;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .name-card.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+  <div class="banner">
+    <h1>Hello.</h1>
+  </div>
+  <div id="div1">
+    <div class="left-column">
+      <img src="image1.jpg" style="width: 100%;" alt="Image 1">
+    </div>
+    <div class="right-column">
+      <h2>AI is working....</h2>
+      <p>Summer 2024, WDD Using AI at Albany State University</p>
+      <a href="https://www.asurams.edu">Visit Albany State University</a>
+      <p>A webpage is a stack of &lt;div&gt;'s. Each &lt;div&gt; is a block that is designed separately. There are four styles for each &lt;div&gt;.</p>
+      <ul>
+        <li onclick="replaceContent(this)">A</li>
+        <li onclick="replaceContent(this)">B</li>
+        <li onclick="replaceContent(this)">C</li>
+        <li onclick="replaceContent(this)">D</li>
+        <li onclick="replaceContent(this)">E</li>
+        <li onclick="replaceContent(this)">F</li>
+        <li onclick="replaceContent(this)">G</li>
+      </ul>
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+  <div id="div2">
+    <div class="name-card active">
+      <img src="person1.jpg" alt="Person 1">
+      <p>Name: John Doe</p>
+      <p>Occupation: Software Engineer</p>
+      <p>Location: New York</p>
+    </div>
+    <div class="name-card">
+      <img src="person2.jpg" alt="Person 2">
+      <p>Name: Jane Smith</p>
+      <p>Occupation: Graphic Designer</p>
+      <p>Location: Los Angeles</p>
+    </div>
+    <div class="name-card">
+      <img src="person3.jpg" alt="Person 3">
+      <p>Name: Alex Johnson</p>
+      <p>Occupation: Data Analyst</p>
+      <p>Location: Chicago</p>
+    </div>
+    <!-- Add more name cards here -->
+    <div class="name-card">
+      <img src="person20.jpg" alt="Person 20">
+      <p>Name: Sarah Williams</p>
+      <p>Occupation: Marketing Manager</p>
+      <p>Location: Houston</p>
+    </div>
+    <div style="clear: both;"></div>
+  </div>
+  <div id="div3">
+    <div class="left-column">
+      <h2>Table of Contents</h2>
+      <ul style="list-style-type: none;">
+        <li onclick="replaceContent(this)">A</li>
+        <li onclick="replaceContent(this)">B</li>
+        <li onclick="replaceContent(this)">C</li>
+        <li onclick="replaceContent(this)">D</li>
+        <li onclick="replaceContent(this)">E</li>
+        <li onclick="replaceContent(this)">F</li>
+        <li onclick="replaceContent(this)">G</li>
+      </ul>
+    </div>
+  </div>
+  <div id="div4">
+    <p class="div4_paragraph">My dream vacation</p>
+  </div>
+
+  <script>
+    var nameCards = document.querySelectorAll('.name-card');
+    var currentIndex = 0;
+
+    function showNameCard(index) {
+      nameCards.forEach(function(card) {
+        card.classList.remove('active');
+      });
+      nameCards[index].classList.add('active');
+    }
+
+    function showNextNameCard() {
+      if (currentIndex < nameCards.length - 1) {
+        currentIndex++;
+      } else {
+        currentIndex = 0;
+      }
+      showNameCard(currentIndex);
+    }
+
+    function showPreviousNameCard() {
+      if (currentIndex > 0) {
+        currentIndex--;
+      } else {
+        currentIndex = nameCards.length - 1;
+      }
+      showNameCard(currentIndex);
+    }
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'ArrowRight') {
+        showNextNameCard();
+      } else if (event.key === 'ArrowLeft') {
+        showPreviousNameCard();
+      }
+    });
+
+    showNameCard(currentIndex);
+  </script>
+</body>
+</html>

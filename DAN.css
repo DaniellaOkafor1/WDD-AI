@@ -1,0 +1,14 @@
+
+  main div {
+    border: 1px solid black;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  #div1 img {
+    width: 400px;
+    height: 300px;
+  }
+  #div9 {
+    background-color: black;
+    color: red; /* Change the font color to red */
+  }

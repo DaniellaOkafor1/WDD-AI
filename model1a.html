@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Summer CAM WDD Using AI</title>
+  <!-- Include Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <style>
+    main div {
+      border: 1px solid black;
+      padding: 10px;
+      margin-bottom: 10px;
+    }
+    #div1 img {
+      width: 400px;
+      height: 300px;
+    }
+    #div9 {
+      background-color: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="jumbotron">
+      <h1 class="display-4">Summer CAM WDD Using AI</h1>
+    </div>
+    <main>
+      <!-- Your main content goes here -->
+      <div id="div1">
+        <h2>Section 1. What is a linear regression?</h2>
+        <ul>
+          <li>It tries to find a linear function y=wx+b.</li>
+          <li>The linear function tries to fit a collection of number pairs, such as house sales, (sqft, sale price).</li>
+          <li>There is no linear function that can accurately fit all number pairs. So, we have to find the 'best' one.</li>
+          <li>By being best, we design a so-called cost function, such as mean square error invented by the great Carl Gauss.</li>
+          <li>This is what machine learning is doing.<br><img src="linearRegression1.jpg" alt="Linear Regression Image" width="400" height="300"></li>
+        </ul>
+      </div>
+      <div id="div2">
+        <h2>Section 2. The JavaScript libraries to use</h2>
+        <p>We will use TensorFlow.js to train the model.</p>
+        <p>Click the 'Run' button below to import two JavaScript libraries.</p>
+      </div>
+      <div id="div3">
+        <button id="runButton">Run</button>
+      </div>
+      <div id="div4"></div>
+      <div id="div5">
+        <h2>Section 3. Using the dataset from Google</h2>
+        <p>We will use a dataset from Google, <a href="https://storage.googleapis.com/tfjs-tutorials/carsData.json">https://storage.googleapis.com/tfjs-tutorials/carsData.json</a>.</p>
+        <button id="loadDatasetButton">Load the dataset</button>
+      </div>
+      <div id="div7">
+        <h2>Section 4. Extract the Miles_per_Gallon and Horsepower</h2>
+        <p>We will use only Miles_per_Gallon:value and Horsepower: value for our training.</p>
+        <button id="extractDatasetButton">Extract training dataset</button>
+      </div>
+      <div id="div6"></div>
+
+
+      <div id="div8">
+        <h2>Section 5. Visualize the training dataset</h2>
+        <button id="visualizeDatasetButton">Visualize the training dataset</button>
+        <div id="plotContainer"></div>
+      </div>
+
+      <div id="div9">
+        <h2>Section 6. Define the model</h2>
+        <p>We will define a TensorFlow sequential model with one input x and one output y.</p>
+      </div>
+
+      <div id="div10">
+        <button id="showSummaryButton">Show summary of the model</button>
+        <div id="modelSummary"></div>
+      </div>
+    </main>
+  </div>
+
+  <!-- Include Bootstrap JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  <script>
+    var globalDataset; // Global variable to store the dataset
+    var extractedDataset; // Global variable to store the extracted dataset
+    var model; // Global variable to store the TensorFlow sequential model
+
+    document.getElementById("runButton").addEventListener("click", function() {
+      var script1 = document.createElement("script");
+      script1.src = "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@1.0.0/dist/tf.min.js";
+      document.body.appendChild(script1);
+
+      var script2 = document.createElement("script");
+      script2.src = "https://cdn.jsdelivr.net/npm/@tensorflow/tfjs-vis@1.0.2/dist/tfjs-vis.umd.min.js";
+      document.body.appendChild(script2);
+
+      var consoleOutput = document.getElementById("div4");
+      consoleOutput.innerHTML = "Loading TensorFlow.js and tfjs-vis libraries...";
+    });
+
+    document.getElementById("loadDatasetButton").addEventListener("click", function() {
+      fetch("https://storage.googleapis.com/tfjs-tutorials/carsData.json")
+        .then(response => response.json())
+        .then(data => {
+          globalDataset = data; // Save the dataset to the global variable
+          var consoleOutput = document.getElementById("div6");
+          var firstTenData = globalDataset.slice(0, 10); // Get the first 10 data values
+          consoleOutput.innerHTML = JSON.stringify(firstTenData);
+        })
+        .catch(error => {
+          var consoleOutput = document.getElementById("div6");
+          consoleOutput.innerHTML = "Error loading the dataset: " + error;
+        });
+    });
+
+
+
+    document.getElementById("extractDatasetButton").addEventListener("click", function() {
+      extractedDataset = extractData(globalDataset); // Extract the desired values from the dataset
+      var extractedDataOutput = document.getElementById("div7");
+      var firstTenExtractedData = extractedDataset.slice(0, 10); // Get the first 10 extracted data values
+      extractedDataOutput.innerHTML = JSON.stringify(firstTenExtractedData);
+    });
+    
+    document.getElementById("visualizeDatasetButton").addEventListener("click", function() {
+      var plotContainer = document.getElementById("plotContainer");
+      plotContainer.innerHTML = ""; // Clear the plot container
+
+      var data = extractedDataset;
+      var values = data.map(d => ({
+        x: d.Horsepower,
+        y: d.Miles_per_Gallon
+      }));
+
+      var series = [{ values: values, series: "Training Dataset" }];
+      var options = {
+        xLabel: "Horsepower",
+        yLabel: "Miles_per_Gallon",
+        xMin: 0,
+        xMax: 240,
+        xStep: 20,
+        yMin: 0,
+        yMax: 50,
+        yStep: 10,
+        title: "Horsepower vs Miles_per_Gallon"
+      };
+
+
+
+
+    function extractData(dataset) {
+      var extractedData = [];
+      for (var i = 0; i < dataset.length; i++) {
+        var dataPoint = {
+          "Miles_per_Gallon": dataset[i].Miles_per_Gallon,
+          "Horsepower": dataset[i].Horsepower
+        };
+        extractedData.push(dataPoint);
+      }
+      return extractedData;
+    }
+
+    // Define the TensorFlow sequential model
+    var model = tf.sequential();
+    model.add(tf.layers.dense({ inputShape: [1], units: 1 }));
+    model.add(tf.layers.dense({ units: 1 }));
+
+    document.getElementById("showSummaryButton").addEventListener("click", function() {
+      var modelSummaryOutput = document.getElementById("modelSummary");
+      modelSummaryOutput.innerHTML = ""; // Clear the model summary output
+
+      model.summary(null, (summary) => {
+        modelSummaryOutput.innerHTML = summary;
+      });
+    });
+  </script>
+</body>
+</html>
